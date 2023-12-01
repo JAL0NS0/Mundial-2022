@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #56042C;
+    height: 100%;
+}
+#encabezado{
+   color: white;
+}
+.contenido{
+    background-color: black;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    
+    flex-direction: row;
+
+    #logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        img{
+            height: 400px;
+        }
+    }
+
+    #datos{
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+        #caja--inputs{
+            background-color: yellow;
+            padding: 30px;
+            border-radius: 20px;
+            #mensaje_error{
+                color: red;
+            }
+        }
+        
+        form{
+            align-content: center;
+        }
+        width: 50%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .enviar{
+        text-align: center;
+    }
+}

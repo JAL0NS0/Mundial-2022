@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+}
+#encabezado{
+    background-color:#56042C;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+
+    #logo{
+        width: 10%;
+        img{
+            height: 80px;
+        }
+    }
+
+    #inf_usuario{
+        width: 70%;
+        color: white;
+        #usuario{
+            font-size: 50px;
+        }
+        #punteo{
+            font-size:20px
+        }
+    }
+
+
+    #cerrar{ 
+        width: 20%;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        
+    }
+    .botones{
+        background-color: black;
+        color:white;
+        font-size: 20px;
+        padding: 10px 10px;
+        text-decoration: none;
+        border-radius: 10px;
+
+        a:hover{
+            background-color: rgb(59, 59, 59);
+        }
+    }
+}
+
+
+
+#menu{
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #1077C3;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover {
+        background-color: #49BCE3;
+      }
+}
+
+
+#mi_foto{
+    width: 20px;
+}

@@ -1,0 +1,119 @@
+#contenido{
+    background-color: rebeccapurple;
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px 0;
+    border-radius: 20px;
+}
+
+#nombre_listado{
+    background-color: #FEC310;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+    width: fit-content;
+}
+
+#agregar{
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    a{  
+        padding: 5px;
+        border-radius: 10px;
+        background-color: rgb(147, 0, 0);
+        width: 100%;
+        color: white;
+    }
+    a:hover{
+        background-color: rgb(59, 59, 59);
+    }
+}
+
+.titulo--grupos{
+    margin-top: 20px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 4px;
+}
+
+.grupo{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.partido{
+    width: 97%;
+    margin: 5px 0;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5%;
+    font-size: 12px;
+
+    .detalles{
+        width: 25%;
+        .fecha{
+            font-weight: bold;
+        }
+    }
+    .dato--equipo{
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0 15px;
+        font-size: 20px;
+        .bandera{
+            img{
+                width: 40px;
+            }
+        }
+    }
+    .dato--I{
+        flex-direction: row-reverse;
+    }
+    .resultados{
+        width: 20%;
+        padding: 0 20px;
+        .punteo{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 30px;
+        }
+    }
+
+    .resultados--user{
+        .punteo{
+            display: flex;
+            flex-direction: column;
+            .valor{
+                display: flex;
+                flex-direction:  row;
+                justify-content: center;
+            }
+            .nombre_punteo{
+                text-align: center;
+                font-size: 10px;
+            }
+            .prediccion{
+                .res{
+                    margin: 0;
+                    padding: 0;
+                    input{
+                        width: 35px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .editar{
+        font-size: 20px;
+    }
+}
+

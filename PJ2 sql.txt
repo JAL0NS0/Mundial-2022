@@ -1,0 +1,168 @@
+CREATE TABLE Usuario (
+  nombre VARCHAR(35),
+  puntos INT,
+  contrasena INT,
+  nickname VARCHAR(50),
+  PRIMARY KEY (nickname));
+
+
+
+CREATE TABLE Equipos (
+  nombre VARCHAR(35),
+  bandera VARCHAR(200),
+  partidos_ganados INT,
+  partidos_perdidos INT,
+  partidos_empatados INT,
+  goles_favor INT,
+  goles_contra INT, 
+  grupo VARCHAR(1),
+  PRIMARY KEY (nombre));
+
+
+CREATE TABLE Estadio (
+  nombre VARCHAR(35),
+  direccion VARCHAR(100),
+  PRIMARY KEY (direccion)
+);
+
+
+
+CREATE TABLE Partido (
+  num_partido INT,
+  estadio VARCHAR(35),
+  nombre_H VARCHAR(35),
+  nombre_A VARCHAR(35),
+  Fecha_hora TIMESTAMP,
+  Resultado_H INT,
+  Resultado_A INT,
+  Etapa VARCHAR(2),
+  Penales_H INT,
+  Penales_A INT,
+  PRIMARY KEY (num_partido),
+  FOREIGN KEY (nombre_H) REFERENCES Equipos(nombre),
+  FOREIGN KEY (nombre_A) REFERENCES Equipos(nombre),
+  FOREIGN KEY (estadio) REFERENCES estadio(nombre));
+
+
+CREATE TABLE Apuesta (
+  nickname VARCHAR(35),
+  prediccion_h INT,
+  prediccion_a INT,
+  num_partido INT,
+  PRIMARY KEY (num_partido, Nickname),
+  FOREIGN KEY (nickname) REFERENCES usuario(nickname),
+  FOREIGN KEY (num_partido) REFERENCES Partido(num_partido)
+);
+
+
+INSERT INTO equipos(nombre,bandera) VALUES('Equipo1','0');
+INSERT INTO equipos(nombre,bandera) VALUES('Equipo2','0');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (1,'Equipo1','Equipo2','GA');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (2,'Equipo1','Equipo2','GA');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (3,'Equipo1','Equipo2','GB');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (4,'Equipo1','Equipo2','GB');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (5,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (6,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (7,'Equipo1','Equipo2','GC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (8,'Equipo1','Equipo2','GC');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (9,'Equipo1','Equipo2','GF');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (10,'Equipo1','Equipo2','GE');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (11,'Equipo1','Equipo2','GE');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (12,'Equipo1','Equipo2','GF');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (13,'Equipo1','Equipo2','GG');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (14,'Equipo1','Equipo2','GH');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (15,'Equipo1','Equipo2','GH');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (16,'Equipo1','Equipo2','GG');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (17,'Equipo1','Equipo2','GB');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (18,'Equipo1','Equipo2','GA');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (19,'Equipo1','Equipo2','GA');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (20,'Equipo1','Equipo2','GB');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (21,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (22,'Equipo1','Equipo2','GC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (23,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (24,'Equipo1','Equipo2','GC');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (25,'Equipo1','Equipo2','GE');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (26,'Equipo1','Equipo2','GF');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (27,'Equipo1','Equipo2','GF');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (28,'Equipo1','Equipo2','GE');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (29,'Equipo1','Equipo2','GG');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (30,'Equipo1','Equipo2','GH');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (31,'Equipo1','Equipo2','GG');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (32,'Equipo1','Equipo2','GH');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (33,'Equipo1','Equipo2','GB');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (34,'Equipo1','Equipo2','GB');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (35,'Equipo1','Equipo2','GA');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (36,'Equipo1','Equipo2','GA');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (37,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (38,'Equipo1','Equipo2','GD');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (39,'Equipo1','Equipo2','GC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (40,'Equipo1','Equipo2','GC');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (41,'Equipo1','Equipo2','GF');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (42,'Equipo1','Equipo2','GF');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (43,'Equipo1','Equipo2','GE');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (44,'Equipo1','Equipo2','GE');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (45,'Equipo1','Equipo2','GH');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (46,'Equipo1','Equipo2','GH');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (47,'Equipo1','Equipo2','GG');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (48,'Equipo1','Equipo2','GG');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (49,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (50,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (51,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (52,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (53,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (54,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (55,'Equipo1','Equipo2','OC');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (56,'Equipo1','Equipo2','OC');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (57,'Equipo1','Equipo2','CU');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (58,'Equipo1','Equipo2','CU');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (59,'Equipo1','Equipo2','CU');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (60,'Equipo1','Equipo2','CU');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (61,'Equipo1','Equipo2','SM');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (62,'Equipo1','Equipo2','SM');
+
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (63,'Equipo1','Equipo2','FN');
+INSERT INTO partido(num_partido,nombre_h,nombre_a,etapa) VALUES (64,'Equipo1','Equipo2','FN');
+
+
+USUARIOS
+
+INSERT INTO usuario(nombre,nickname,puntos,contrasena) VALUES('Joaquin','Jalonso',0,'20ene');
+UPDATE usuario SET puntos = 20 WHERE nickname='Jalonso';
+
+ESTADIO
+SELECT nombre,direccion FROM estadio
+INSERT INTO estadio(estadio_id,nombre,direccion) VALUES(1,'Estadio Al Janoub','Qatar');
+
+EQUIPO
+SELECT nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra FROM equipos;
+INSERT INTO equipos(nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra,grupo) VALUES('España','La bandera de españa',0,0,0,0,0,'A');
+
+
+UPDATE equipos 
+SET bandera='Vandera de españa'
+WHERE nombre='España';
+
+PARTIDO
+INSERT INTO partido(num_partido,nombre_h,nombre_a,fecha_hora,resultado_h,resultado_a,etapa,penales_h,penales_a) 
+
+
+
+SELECT E.nombre
+FROM equipos as E, partido as P
+WHERE (E.nombre=P.nombre_h or E.nombre=P.nombre_a)
+	and E.nombre = 'Venezuela'
+	and P.etapa like 'G_'

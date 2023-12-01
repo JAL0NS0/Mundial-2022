@@ -1,0 +1,99 @@
+#contenido {
+  background-color: rebeccapurple;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+#contenido .boton--enviar button {
+  width: 200px;
+}
+
+.listado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.listado #nombre_listado {
+  background-color: #FEC310;
+  padding: 5px;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.listado .dato {
+  margin: 5px auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.listado .dato--titulos {
+  background-color: black;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.listado--equipos .punteo {
+  width: 5%;
+}
+
+.listado--equipos .dato #bandera {
+  width: 15%;
+}
+
+.listado--equipos .dato #nombre {
+  width: 45%;
+}
+
+.listado--equipos .dato--titulos #nombre {
+  width: 60%;
+}
+
+.listado--modif--equipo .dato #bandera {
+  width: 10%;
+}
+
+.listado--modif--equipo .dato #nombre {
+  width: 30%;
+}
+
+.listado--modif--equipo .dato--titulos #nombre {
+  width: 40%;
+}
+
+.listado--estadio #nombre {
+  width: 50%;
+}
+
+.listado--estadio #ciudad {
+  width: 50%;
+}
+
+.listado--modif--estadio #nombre {
+  width: 40%;
+}
+
+.listado--modif--estadio #ciudad {
+  width: 40%;
+}
+/*# sourceMappingURL=listado.css.map */

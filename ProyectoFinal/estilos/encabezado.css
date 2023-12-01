@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+}
+
+#encabezado {
+  background-color: #56042C;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 10px;
+}
+
+#encabezado #logo {
+  width: 10%;
+}
+
+#encabezado #logo img {
+  height: 80px;
+}
+
+#encabezado #inf_usuario {
+  width: 70%;
+  color: white;
+}
+
+#encabezado #inf_usuario #usuario {
+  font-size: 50px;
+}
+
+#encabezado #inf_usuario #punteo {
+  font-size: 20px;
+}
+
+#encabezado #cerrar {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#encabezado .botones {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#encabezado .botones a:hover {
+  background-color: #3b3b3b;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1077C3;
+}
+
+#menu li {
+  float: left;
+}
+
+#menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  background-color: #49BCE3;
+}
+
+#mi_foto {
+  width: 20px;
+}
+/*# sourceMappingURL=encabezado.css.map */
