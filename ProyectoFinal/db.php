@@ -1,7 +1,7 @@
 <?php
 
     $host= "localhost";
-    $dbname="PJ2CC5";
+    $dbname="QM2022";
     $user="postgres";
     $password="1234";
 

@@ -11,28 +11,24 @@
   padding: 5px;
   border-radius: 5px;
   margin: auto;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
 #agregar {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 20px auto 0 auto;
 }
-
 #agregar a {
   padding: 5px;
   border-radius: 10px;
-  background-color: #930000;
+  background-color: rgb(147, 0, 0);
   width: 100%;
   color: white;
 }
-
 #agregar a:hover {
-  background-color: #3b3b3b;
+  background-color: rgb(59, 59, 59);
 }
 
 .titulo--grupos {
@@ -54,113 +50,63 @@
   margin: 5px 0;
   border-radius: 10px;
   background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
   padding: 1.5%;
   font-size: 12px;
 }
-
 .partido .detalles {
   width: 25%;
 }
-
 .partido .detalles .fecha {
   font-weight: bold;
 }
-
 .partido .dato--equipo {
   width: 30%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
   gap: 0 15px;
   font-size: 20px;
 }
-
 .partido .dato--equipo .bandera img {
   width: 40px;
 }
-
 .partido .dato--I {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
-
 .partido .resultados {
   width: 20%;
   padding: 0 20px;
 }
-
 .partido .resultados .punteo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   font-size: 30px;
 }
-
 .partido .resultados--user .punteo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .partido .resultados--user .punteo .valor {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
-
 .partido .resultados--user .punteo .nombre_punteo {
   text-align: center;
   font-size: 10px;
 }
-
 .partido .resultados--user .punteo .prediccion .res {
   margin: 0;
   padding: 0;
 }
-
 .partido .resultados--user .punteo .prediccion .res input {
   width: 35px;
   margin: 0;
 }
-
 .partido .editar {
   font-size: 20px;
-}
-/*# sourceMappingURL=partidos.css.map */
+}/*# sourceMappingURL=partidos.css.map */

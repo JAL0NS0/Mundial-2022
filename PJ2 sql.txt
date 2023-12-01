@@ -22,7 +22,7 @@ CREATE TABLE Equipos (
 CREATE TABLE Estadio (
   nombre VARCHAR(35),
   direccion VARCHAR(100),
-  PRIMARY KEY (direccion)
+  PRIMARY KEY (nombre)
 );
 
 
@@ -158,8 +158,6 @@ WHERE nombre='España';
 
 PARTIDO
 INSERT INTO partido(num_partido,nombre_h,nombre_a,fecha_hora,resultado_h,resultado_a,etapa,penales_h,penales_a) 
-
-
 
 SELECT E.nombre
 FROM equipos as E, partido as P

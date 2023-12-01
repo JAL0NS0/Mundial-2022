@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../js/borrar.js"></script>
     <link rel="stylesheet" href="../../estilos/encabezado.css">
-    <link rel="stylesheet" href="../../estilos/listado.css">
+    <link rel="stylesheet" href="../../estilos/listado.css?v=<?php echo(rand()); ?>">
+    <link href="https://ges2.galileo.edu/resources/theme-ges-forall/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <title>Equipos</title>
 </head>
 <body>
@@ -43,6 +44,9 @@
             <li><a class="active" href="#">Equipos</a></li>
         </ul>
     </div>
+
+
+
     <div id="contenido"  class="listado listado--modif listado--modif--equipo listado--equipos">
         <div id="nombre_listado">
             <h1>EQUIPOS</h1>
@@ -51,24 +55,29 @@
             <a href="editar.php">Agregar Equipo</a>
         </div>
 
-        <?php           
-            $grupos=array('A','B','C','D','E','F','G','H');
-            foreach ($grupos as $key => $value) {
-                echo "<div class='dato dato--titulos '>";
-                echo     "<div id='nombre'>GRUPO $value</div>";
-                echo     "<div class='punteo'>PJ</div>";
-                echo     "<div class='punteo'>PG</div>";
-                echo     "<div class='punteo'>PE</div>";
-                echo     "<div class='punteo'>PP</div>";
-                echo     "<div class='punteo'>GF</div>";
-                echo     "<div class='punteo'>GC</div>";
-                echo     "<div class='punteo'>+/-</div>";
-                echo     "<div class='punteo'>PTS</div>";
-                echo     "<div id='edicion'> EDICION </div>";
-                echo     "<div id='edicion'> BORRAR </div>";
-                echo "</div>";
-                echo "<div id='lista'>";                
-                $query= "SELECT nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra FROM equipos WHERE grupo='$value'";
+        <?php 
+        $grupos=array('A','B','C','D','E','F','G','H');
+        foreach ($grupos as $key => $nombre_grupo) {
+        ?>
+        <table>
+            <thead>
+                <tr class="dato--titulos">
+                    <th class="nombre_grupo">GRUPO <?= $nombre_grupo ?></th>
+                    <th class="punteo" >PJ</th>
+                    <th class="punteo" >PG</th>
+                    <th class="punteo" >PE</th>
+                    <th class="punteo" >PP</th>
+                    <th class="punteo" >GF</th>
+                    <th class="punteo" >GC</th>
+                    <th class="punteo" >+/-</th>
+                    <th class="punteo" >PTS</th>
+                    <th class="punteo" ></th>
+                    <th class="punteo" ></th>
+                </tr>
+            </thead>
+
+            <?php
+                $query= "SELECT nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra FROM equipos WHERE grupo='$nombre_grupo'";
                 $result = pg_query($dbconn,$query);
                 if(!$result){
                     echo 'ocurrio un error';
@@ -86,31 +95,29 @@
                         $diff= $gf-$gc;
                         $pts = 3*$pg + $pe;
 
-                        echo    "<div class='dato dato--admin '>";
-                        echo        "<div id='bandera'></div>";
-                        echo        "<div id='nombre'>  $nombre </div>";
-                        echo        "<div class='punteo'> $pj </div>";                        
-                        echo        "<div class='punteo'> $pg  </div>";
-                        echo        "<div class='punteo'> $pe  </div>";
-                        echo        "<div class='punteo'> $pp  </div>";
-                        echo        "<div class='punteo'> $gf  </div>";
-                        echo        "<div class='punteo'> $gc  </div>";
-                        echo        "<div class='punteo'> $diff </div>";
-                        echo        "<div class='punteo'> $pts </div>";
-                        echo        "<div id='edicion'>";
-                        echo            "<a href='editar.php?id=$nombre'><img src='../../img/lapiz.png' ></a>";
-                        echo        "</div>";
-                        echo        "<div id='edicion'>";
-                        echo            "<a href=\"#\" onclick='preguntaEliminar(\"equipo\",\"$nombre\",\"\");'><img src='../../img/borrar.png' ></a>";
-                        echo        "</div>";
-                        echo    "</div>";
+            ?>
+                <tr class="">
+                    <td class="nombre_grupo"><?= $nombre ?></td>
+                    <td class="punteo"><?= $pj ?></td>
+                    <td class="punteo"><?= $pg ?></td>
+                    <td class="punteo"><?= $pe ?></td>
+                    <td class="punteo"><?= $pp ?></td>
+                    <td class="punteo"><?= $gf ?></td>
+                    <td class="punteo"><?= $gc ?></td>
+                    <td class="punteo"><?= $diff ?></td>
+                    <td class="punteo"><?= $pts ?></td>
+                    <td class="punteo"><a href='editar.php?id=<?=$nombre?>'><img src='../../img/lapiz.png' ></a></td>
+                    <td class="punteo"><a href=\"#\" onclick='preguntaEliminar(\"equipo\",\"<?=$nombre?>\",\"\");'><img src='../../img/borrar.png' ></a></td>
+                </tr>
+            <?php
                     }  
                 }
-                echo "</div>"; 
-
-            }
-            unset($valor);
-            pg_close($dbconn);   
+            ?>
+        </table>
+        <?php
+        }
+        unset($valor);
+        pg_close($dbconn);
         ?>       
 
     </div>

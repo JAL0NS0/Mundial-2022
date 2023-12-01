@@ -11,75 +11,43 @@ body {
 
 .contenido {
   background-color: black;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-content: center;
+  align-items: center;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   padding: 20px 0;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 .contenido #logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   width: 50%;
 }
-
 .contenido #logo img {
   height: 400px;
 }
-
 .contenido #datos {
   border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 50%;
   height: 100px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   align-items: center;
 }
-
 .contenido #datos #caja--inputs {
   background-color: yellow;
   padding: 30px;
   border-radius: 20px;
 }
-
 .contenido #datos #caja--inputs #mensaje_error {
   color: red;
 }
-
 .contenido #datos form {
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
-
 .contenido .enviar {
   text-align: center;
-}
-/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */
