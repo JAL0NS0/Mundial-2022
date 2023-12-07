@@ -1,10 +1,14 @@
 <?php
     session_start();
     $nombre = $_SESSION['nombre'];
+    $is_admin = FALSE;
 
-    if($nombre === null || $nombre = '' || $nombre !== 'Admin'){
+    if($nombre === null || $nombre == ''){
         echo "Usted no tiene autorización para entrar a esta pagina, inicie sesión";
         die();
+    }
+    if($nombre == 'Admin'){
+        $is_admin = TRUE;
     }
 ?>
 
@@ -51,9 +55,15 @@
         <div id="nombre_listado">
             <h1>EQUIPOS</h1>
         </div>
-        <div id="agregar">
-            <a href="editar.php">Agregar Equipo</a>
-        </div>
+        <?php
+        if($is_admin){
+            ?>
+            <div id="agregar">
+                <a href="editar.php">Agregar Equipo</a>
+            </div>
+            <?php
+        }
+        ?>
 
         <?php 
         $grupos=array('A','B','C','D','E','F','G','H');
@@ -71,56 +81,66 @@
                     <th class="punteo" >GC</th>
                     <th class="punteo" >+/-</th>
                     <th class="punteo" >PTS</th>
-                    <th class="punteo" ></th>
-                    <th class="punteo" ></th>
+                    <?php
+                    if($is_admin){
+                        ?>
+                        <th class="punteo" ></th>
+                        <th class="punteo" ></th>
+                        <?php
+                    }
+                    ?>
                 </tr>
             </thead>
-
+            <tbody>
             <?php
-                $query= "SELECT nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra FROM equipos WHERE grupo='$nombre_grupo'";
-                $result = pg_query($dbconn,$query);
-                if(!$result){
-                    echo 'ocurrio un error';
-                    die();
-                }else{
-                    while( $arr = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-                        $nombre = $arr['nombre'];
-                        $bandera = $arr['bandera'];
-                        $pg = $arr['partidos_ganados'];
-                        $pp = $arr['partidos_perdidos'];
-                        $pe = $arr['partidos_empatados'];
-                        $gf = $arr['goles_favor'];
-                        $gc = $arr['goles_contra'];
-                        $pj = $pg+$pp+$pe;
-                        $diff= $gf-$gc;
-                        $pts = 3*$pg + $pe;
-
+            $query= "SELECT nombre,bandera,partidos_ganados,partidos_perdidos,partidos_empatados,goles_favor,goles_contra FROM equipos WHERE grupo='$nombre_grupo'";
+            $result = pg_query($dbconn,$query);
+            if(!$result){
+                echo 'ocurrio un error';
+                die();
+            }else{
+                while( $arr = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
+                    $nombre = $arr['nombre'];
+                    $bandera = $arr['bandera'];
+                    $pg = $arr['partidos_ganados'];
+                    $pp = $arr['partidos_perdidos'];
+                    $pe = $arr['partidos_empatados'];
+                    $gf = $arr['goles_favor'];
+                    $gc = $arr['goles_contra'];
+                    $pj = $pg+$pp+$pe;
+                    $diff= $gf-$gc;
+                    $pts = 3*$pg + $pe;
+                    ?>
+                    <tr class="">
+                        <td class="nombre_grupo"><?= $nombre ?></td>
+                        <td class="punteo"><?= $pj ?></td>
+                        <td class="punteo"><?= $pg ?></td>
+                        <td class="punteo"><?= $pe ?></td>
+                        <td class="punteo"><?= $pp ?></td>
+                        <td class="punteo"><?= $gf ?></td>
+                        <td class="punteo"><?= $gc ?></td>
+                        <td class="punteo"><?= $diff ?></td>
+                        <td class="punteo"><?= $pts ?></td>
+                        <?php
+                        if($is_admin){
+                            ?>
+                            <td class="punteo"><a href='editar.php?id=<?=$nombre?>'><img src='../../img/lapiz.png' ></a></td>
+                            <td class="punteo"><a href=\"#\" onclick='preguntaEliminar(\"equipo\",\"<?=$nombre?>\",\"\");'><img src='../../img/borrar.png' ></a></td>
+                            <?php
+                        }
+                    
+                    echo "</tr>";
+                    
+                }  
+            }
             ?>
-                <tr class="">
-                    <td class="nombre_grupo"><?= $nombre ?></td>
-                    <td class="punteo"><?= $pj ?></td>
-                    <td class="punteo"><?= $pg ?></td>
-                    <td class="punteo"><?= $pe ?></td>
-                    <td class="punteo"><?= $pp ?></td>
-                    <td class="punteo"><?= $gf ?></td>
-                    <td class="punteo"><?= $gc ?></td>
-                    <td class="punteo"><?= $diff ?></td>
-                    <td class="punteo"><?= $pts ?></td>
-                    <td class="punteo"><a href='editar.php?id=<?=$nombre?>'><img src='../../img/lapiz.png' ></a></td>
-                    <td class="punteo"><a href=\"#\" onclick='preguntaEliminar(\"equipo\",\"<?=$nombre?>\",\"\");'><img src='../../img/borrar.png' ></a></td>
-                </tr>
-            <?php
-                    }  
-                }
-            ?>
+            </tbody>
         </table>
         <?php
         }
         unset($valor);
         pg_close($dbconn);
         ?>       
-
     </div>
-    
 </body>
 </html>

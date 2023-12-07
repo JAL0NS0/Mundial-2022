@@ -25,8 +25,6 @@ CREATE TABLE Estadio (
   PRIMARY KEY (nombre)
 );
 
-
-
 CREATE TABLE Partido (
   num_partido INT,
   estadio VARCHAR(35),

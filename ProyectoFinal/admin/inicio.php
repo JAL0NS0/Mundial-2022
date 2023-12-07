@@ -2,7 +2,7 @@
     session_start();
     $nombre = $_SESSION['nombre'];
 
-    if($nombre === null || $nombre = '' || $nombre !== 'Admin'){
+    if($nombre === null || $nombre == '' || $nombre !== 'Admin'){
         echo "Usted no tiene autorización para entrar a esta pagina, inicie sesión";
         die();
     }
@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos/encabezado.css">
     <link rel="stylesheet" href="../estilos/inicio.css">
+    <link href="https://ges2.galileo.edu/resources/theme-ges-forall/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script src="../js/borrar.js"></script>
     <title>Inicio</title>
 </head>
@@ -28,8 +29,7 @@
             <div id="usuario">
                 <?php
                     include('../db.php');
-                    $nombre = $_SESSION['nombre'];
-                    echo "$_SESSION[nombre]";
+                    echo "$nombre";
                 ?>
             </div>
         </div>

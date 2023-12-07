@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../js/borrar.js"></script>
     <link rel="stylesheet" href="../../estilos/encabezado.css">
-    <link rel="stylesheet" href="../../estilos/listado.css">
+    <link rel="stylesheet" href="../../estilos/listado.css?v=<?php echo(rand()); ?>">
+    <link href="https://ges2.galileo.edu/resources/theme-ges-forall/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <title>Estadios</title>
 </head>
 <body>
@@ -50,14 +51,17 @@
         <div id="agregar">
             <a href="editar.php">Agregar Estadio</a>
         </div>
-        <div class="dato dato--titulos dato--admin" >
-            <div id="nombre"> NOMBRE </div>
-            <div id="ciudad"> CIUDAD </div>
-            <div id="edicion"> EDITAR </div>
-            <div id="edicion"> BORRAR </div>
-        </div>
-        <div id="lista">
-            <?php
+        <table>
+            <thead>
+                <tr class="dato--titulos">
+                    <th>NOMBRE</th>
+                    <th>CIUDAD</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
                 $query= "SELECT nombre,direccion FROM estadio";
                 $result = pg_query($dbconn,$query);
                 if(!$result){
@@ -65,27 +69,19 @@
                     die();
                 }else{
                     while( $arr = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-                        echo    "<div class='dato dato--admin'>";
-                        echo        "<div id='nombre'>";
-                        echo            $arr['nombre'];
-                        echo        "</div>";
-                        echo        "<div id='ciudad'>";
-                        echo            $arr['direccion'];
-                        echo        "</div>";
-                        echo        "<div id='edicion'>";
-                        echo            "<a href='editar.php?id=$arr[nombre]'><img src='../../img/lapiz.png' ></a>";
-                        echo        "</div>";
-                        echo        "<div id='edicion'>";
-                        echo            "<a href=\"#\" onclick='preguntaEliminar(\"estadio\",\"$arr[nombre]\",\" $arr[nombre] \");'><img src='../../img/borrar.png' ></a>";
-                        echo        "</div>";
-                        echo    "</div>";
-                    }  
-                }
-            ?>
-        </div>
-        
-        
-
+                ?>
+                    <tr>
+                        <td><?=$arr['nombre']?></td>
+                        <td><?=$arr['direccion']?></td>
+                        <td><?="<a href='editar.php?id=$arr[nombre]'><img src='../../img/lapiz.png' ></a>"?></td>
+                        <td><?="<a href=\"#\" onclick='preguntaEliminar(\"estadio\",\"$arr[nombre]\",\" $arr[nombre] \");'><img src='../../img/borrar.png' ></a>"?></td>
+                    </tr>
+                <?php
+                        }  
+                    }
+                ?>
+            </tbody>
+        </table>
     </div>
     
 </body>
