@@ -10,7 +10,7 @@ UPDATE  Partido SET estadio ='Estadio Ahmed bin Ali',nombre_H = 'Estados Unidos'
 UPDATE  Partido SET estadio ='Estadio Icónico de Lusail', nombre_H ='Argentina',nombre_A ='Arabia Saudita',Fecha_hora = '2022-11-22 13:00:00', Etapa ='GC' WHERE num_partido = 8;
 UPDATE  Partido SET estadio ='Estadio Ciudad de la Educación', nombre_H ='Dinamarca',nombre_A ='Tunez',Fecha_hora = '2022-11-22 16:00:00', Etapa ='GD' WHERE num_partido = 6;
 UPDATE  Partido SET estadio ='Estadio 974', nombre_H ='Mexico',nombre_A ='Polonia',Fecha_hora = '2022-11-22 19:00:00',Etapa = 'GC' WHERE num_partido = 7;
-UPDATE  Partido SET estadio ='Estadio Al Janoub', nombre_H ='Francia',nombre_A ='PO_I1', '2022-11-22 22:00:00', Etapa ='GD' WHERE num_partido = 5;
+UPDATE  Partido SET estadio ='Estadio Al Janoub', nombre_H ='Francia',nombre_A ='PO_I1',Fecha_hora '2022-11-22 22:00:00', Etapa ='GD' WHERE num_partido = 5;
 
 UPDATE  Partido SET estadio ='Estadio Al Bayt',nombre_H = 'Marruecos',nombre_A ='Croacia', Fecha_hora ='2022-11-23 13:00:00',Etapa = 'GF' WHERE num_partido = 12;
 UPDATE  Partido SET estadio ='Estadio Internacional Khalifa',nombre_H = 'Alemania',nombre_A ='Japon', Fecha_hora ='2022-11-23 16:00:00', Etapa ='GE' WHERE num_partido = 11;
